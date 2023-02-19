@@ -3,17 +3,17 @@ import random
 from faker import Faker
 
 
-fake=Faker("ru_Ru")
+fake = Faker("ru_Ru")
 
 
-skills=[
+skills = [
     "Стремительный прыжок", "Электрический выстрел", "Ледяной удар",
     "Стремительный удар", "Кислотный взгляд", "Тайный побег", 
     "Ледяной выстрел", "Огненный заряд"
 ]
 
 
-runic_alphabet={
+runic_alphabet = {
     'а': 'а͠', 'б': 'б̋', 'в': 'в͒͠',
     'г': 'г͒͠', 'д': 'д̋', 'е': 'е͠',
     'ё': 'ё͒͠', 'ж': 'ж͒', 'з': 'з̋̋͠',
@@ -42,14 +42,14 @@ runic_alphabet={
 
 def runic(word, alphabet):
     
-    new="".join([alphabet[char] for char in word])
+    new = "".join([alphabet[char] for char in word])
     return new
     
 
 def main():
     
     for i in range(1, 11):
-        character={
+        character = {
             "first_name": fake.first_name(),
             "last_name": fake.last_name(),
             "town": fake.city(),
