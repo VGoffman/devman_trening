@@ -2,50 +2,6 @@ import file_operations
 import random
 from faker import Faker
 
-
-def runic(word, alphabet) -> str:
-    """
-
-    :param word: - получаем строку для обработки
-    :param alphabet:- получаем символы для замены
-    :return: - возвращаем измененную строку
-    """
-    new = ''.join([alphabet[char] for char in word])
-    return new
-
-
-def main() -> None:
-    """
-
-    Создаем карточку.
-    Генерируем имя, фамилию, город,
-    работу, статы и скилы.
-    Получившийся результат записываем
-    в папку Cards и создаем 10 карточек.
-    :return:
-    """
-
-    for i in range(1, 11):
-        character = {
-            'first_name': fake.first_name(),
-            'last_name': fake.last_name(),
-            'town': fake.city(),
-            'job': fake.job(),
-            'strength': random.randint(8, 14),
-            'agility': random.randint(8, 14),
-            'endurance': random.randint(8, 14),
-            'luck': random.randint(8, 14),
-            'intelligence': random.randint(8, 14),
-            'skill_1': runic(random.choice(skills), runic_alphabet),
-            'skill_2': runic(random.choice(skills), runic_alphabet),
-            'skill_3': runic(random.choice(skills), runic_alphabet)
-        }
-
-        file_operations.render_template('src/charsheet.svg', f'cards/result{i}.svg', character)
-
-
-fake = Faker('ru_Ru')
-
 skills = [
     'Стремительный прыжок',
     'Электрический выстрел',
@@ -126,6 +82,50 @@ runic_alphabet = {
     'Я': 'Я̋',
     ' ': ' '
 }
+
+fake = Faker('ru_Ru')
+
+
+def runic(word, alphabet) -> str:
+    """
+
+    :param word: - получаем строку для обработки
+    :param alphabet:- получаем символы для замены
+    :return: - возвращаем измененную строку
+    """
+    new = ''.join([alphabet[char] for char in word])
+    return new
+
+
+def main() -> None:
+    """
+
+    Создаем карточку.
+    Генерируем имя, фамилию, город,
+    работу, статы и скилы.
+    Получившийся результат записываем
+    в папку Cards и создаем 10 карточек.
+    :return:
+    """
+
+    for i in range(1, 11):
+        character = {
+            'first_name': fake.first_name(),
+            'last_name': fake.last_name(),
+            'town': fake.city(),
+            'job': fake.job(),
+            'strength': random.randint(8, 14),
+            'agility': random.randint(8, 14),
+            'endurance': random.randint(8, 14),
+            'luck': random.randint(8, 14),
+            'intelligence': random.randint(8, 14),
+            'skill_1': runic(random.choice(skills), runic_alphabet),
+            'skill_2': runic(random.choice(skills), runic_alphabet),
+            'skill_3': runic(random.choice(skills), runic_alphabet)
+        }
+
+        file_operations.render_template('src/charsheet.svg', f'cards/result{i}.svg', character)
+
 
 if __name__ == '__main__':
     main()
