@@ -6,3 +6,9 @@
 **************************************
 
     Player card generator for D&D
+This player card generator is students project.
+Card have 'resultX.svg' (X is from 1 to 10).
+In card created Name, Surname, City, Сharacterization,
+Abilities.
+The text is stylized as an elvish font.
+The finished cards are placed in a folder 'cards'
