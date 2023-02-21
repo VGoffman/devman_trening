@@ -4,7 +4,6 @@ from faker import Faker
 
 
 
-
 def runic(word, alphabet) -> str:
     """
 
